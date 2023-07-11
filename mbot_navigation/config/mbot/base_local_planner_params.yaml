@@ -1,0 +1,46 @@
+controller_frequency: 1.0
+recovery_behavior_enabled: false
+clearing_rotation_allowed: false
+
+TrajectoryPlannerROS:
+   max_vel_x: 0.5         #x方向最大速度的绝对值
+   min_vel_x: 0.01
+  # max_vel_y: 0.1 
+   #min_vel_y: 0.01
+   max_vel_theta: 1.0
+   min_vel_theta: -1.0
+   min_in_place_vel_theta: 1.0      #原地旋转时，基座允许的最小角速度
+   escape_vel: -0.1     #表示机器人的逃离速度，即背向相反方向行走速度，单位为 
+                                 #该值必需设为负值，但若设置为正值，机器人会在执行逃离操作时向前移动。
+   acc_lim_x: 2.5        #x方向的加速度绝对值
+   acc_lim_y: 2.5
+   acc_lim_theta: 3.2     #旋转加速度的绝对值.
+   
+   holonomic_robot: true   #是否为全向机器人。 值为false时为差分机器人； 为true时表示全向机器人
+   #y_vels: [-0.3, -0.1, 0.1, 0.3]
+   yaw_goal_tolerance: 0.05 # about 6 degrees   到达目标点时偏行角允许的误差，单位弧度.
+   xy_goal_tolerance: 0.1  # 10 cm  到达目标点时,在xy平面内与目标点的距离误差.
+   latch_xy_goal_tolerance: false      #设置为true,如果到达容错距离内,机器人就会原地
+   pdist_scale: 0.6     #控制器应尝试达到其局部目标的权重，也控制速度，最大可能值为5.0
+   gdist_scale: 0.8     #控制器应尝试达到其局部目标的权重，也控制速度，最大可能值为5.0
+   meter_scoring: true
+
+   heading_lookahead: 0.325      #在对不同的就地旋转轨迹进行评分时，以米为单位向前看多远。
+   heading_scoring: false     #是否根据机器人前进路径的距离进行评分。
+   heading_scoring_timestep: 0.8    #使用航向评分时，沿模拟轨迹以秒为单位向前看多远。
+   occdist_scale: 0.01     #定义控制器躲避障碍物的程度.
+   oscillation_reset_dist: 0.1     #机器人运动多远距离才会重置振荡标记
+   publish_cost_grid_pc: false   #
+   global_frame_id: odom
+   prune_plan: true     #机器人前进是是否清楚身后1m外的轨迹.
+
+   sim_time: 1.0     #向前仿真轨迹的时间.
+   sim_granularity: 0.025     #步长,轨迹上采样点之间的距离,轨迹上点的密集程度.
+   angular_sim_granularity: 0.025
+   vx_samples: 10        #x方向速度空间的采样点数
+   vy_samples: 10 
+   vtheta_samples: 20      #旋转方向的速度空间采样点数.
+   dwa: true
+   simple_attractor: false
+
+   

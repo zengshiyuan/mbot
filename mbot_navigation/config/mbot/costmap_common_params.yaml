@@ -1,0 +1,12 @@
+obstacle_range: 2.5   #距离机器人的默认最大距离，以该距离为半径的范围来为代价地图插入障碍物
+raytrace_range: 2.0   #从地图中扫描出障碍物的默认范围
+#footprint: [[0.15, 0.15], [0.15, -0.15], [-0.15, -0.15], [-0.15, 0.15]]
+footprint_inflation: 0.01
+robot_radius: 0.175
+inflation_radius: 0.2
+cost_scaling_factor: 10.0    #修改机器人绕过障碍物的行为
+max_obstacle_height: 0.5     #传感器读数的最大有效高度，单位为 meters。通常设置为略高于机器人的高度
+min_obstacle_height: -0.5   #传感器读数的最小高度（以米为单位）被认为有效。 这通常设置为地面高度，但可以根据传感器的噪声模型设置更高或更低。
+observation_sources: scan     #设定导航功能包集所使用的传感器
+scan: {sensor_frame: base_link,observation__persistence: 0.0 ,data_type: LaserScan, topic: /scan, marking: true, clearing: true, expected_update_rate: 0}
+track_unknown_space: false

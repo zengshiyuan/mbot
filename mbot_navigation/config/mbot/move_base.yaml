@@ -1,0 +1,20 @@
+base_global_planner:  navfn/NavfnROS    #全局规划器用于move_base插件的插件名称，
+base_local_planner: base_local_planner/TrajectoryPlannerROS   #本地规划器要与插件一起使用的插件的名称
+recovery_behaviors :  clear_costmap_recovery/ClearCostmapRecovery   #恢复行为插件列表
+controller_frequency: 20    #运行控制环路并将速度命令发送到基站的速率
+planner_patience: 5.0   #在执行空间清理操作之前，计划员将在几秒钟内等待多长时间，以尝试找到有效的计划。
+controller_patience: 15.0   #在执行空间清除操作之前，控制器将在几秒钟内等待多长时间，而不收到有效的控件。
+conservative_reset_dist: 3.0    
+##与机器人的距离（以米为单位），超过该距离，在尝试清除地图中的空间时，将从成本图中清除障碍物。
+##请注意，仅当默认恢复行为用于move_base时，才使用此参数。
+
+recovery_behavior_enabled: true     #是否启用move_base恢复行为以尝试清除空间。
+clearing_rotation_allowed: true       #确定机器人在尝试清理空间时是否将尝试就地旋转。
+shutdown_costmaps: false      #确定当节点处于非活动状态时是否关闭节点的成本图move_base
+oscillation_timeout: 0.0      #在执行恢复行为之前允许振荡的时间（以秒为单位）
+oscillation_distance: 0.5     #在执行恢复行为之前允许振荡的时间（以秒为单位）
+planner_frequency: 0.0      #运行全局规划环路的速率
+max_planning_retries: -2      #在执行恢复行为之前允许计划重试的次数。
+
+
+

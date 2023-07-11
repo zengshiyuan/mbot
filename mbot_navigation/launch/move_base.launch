@@ -1,0 +1,23 @@
+<launch>
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
+
+    <rosparam file="$(find mbot_navigation)/config/mbot/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find mbot_navigation)/config/mbot/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find mbot_navigation)/config/mbot/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find mbot_navigation)/config/mbot/global_costmap_params.yaml" command="load" />
+
+    <rosparam file="$(find mbot_navigation)/config/mbot/base_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find mbot_navigation)/config/mbot/dwa_local_planner.yaml" command="load" />
+    <rosparam file="$(find mbot_navigation)/config/mbot/global_planner.yaml" command="load" />
+
+
+
+    <!--B2配置局部规划器  DWAPlannerROS  DWA-->
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+    <!--<param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>-->
+
+  </node>
+  
+</launch>

@@ -1,0 +1,58 @@
+DWAPlannerROS:
+  controller_frequency: 15.0
+  acc_lim_x: 2.5        #x方向的加速度绝对值
+  acc_lim_y: 0
+  acc_lim_theta: 3.2     #旋转加速度的绝对值. max_vel_x: 0.5         #x方向最大速度的绝对值
+  max_rot_vel:   2.0         #最大旋转速度的绝对值.
+  min_rot_vel:  -2.0       #最小旋转速度的绝对值.
+  max_trans_vel: 20.0     #平移速度最大值绝对值
+  min_trans_vel: 0.01        #平移速度最小值的绝对值
+  trans_stopped_vel:  1.0       #停止的时候，最大的平移速度
+  rot_stopped_vel:  20.0      #停止的时候，最大角速度
+  max_vel_x: 1.0        #x方向最大速度的绝对值
+  min_vel_x: 0.01
+  max_vel_y: 0.0 
+  min_vel_y: 0.00
+  max_vel_theta: 3.14
+  min_vel_theta: -3.14
+  min_in_place_vel_theta: 2.0      #原地旋转时，基座允许的最小角速度
+  escape_vel: -0.01     #表示机器人的逃离速度，即背向相反方向行走速度，单位为 
+                                 #该值必需设为负值，但若设置为正值，机器人会在执行逃离操作时向前移动。
+
+  holonomic_robot: false   #是否为全向机器人。 值为false时为差分机器人； 为true时表示全向机器人
+  #y_vels: [-0.3, -0.1, 0.1, 0.3]
+
+  yaw_goal_tolerance: 0.1 # about 6 degrees   到达目标点时偏行角允许的误差，单位弧度.
+  xy_goal_tolerance: 0.1  # 10 cm  到达目标点时,在xy平面内与目标点的距离误差.
+  latch_xy_goal_tolerance: false      #设置为true,如果到达容错距离内,机器人就会原地旋转
+
+  sim_time: 3     #向前仿真轨迹的时间.
+  sim_granularity: 0.3     #步长,轨迹上采样点之间的距离,轨迹上点的密集程度.
+  angular_sim_granularity: 0.3   #给定轨迹两点之间的间隔角度
+  vx_samples: 50        #x方向速度空间的采样点数
+  vy_samples: 0
+  vtheta_samples: 50      #旋转方向的速度空间采样点数.
+  simple_attractor: true
+
+#轨迹评分参数
+  path_distance_bias: 3000.0  #控制器靠近给定路径的权重\
+  goal_distance_bias : 20.0   #控制器应尝试达到其本地目标的权重也控制速度 。
+  occdist_scale : 0.10    #控制器尝试避免障碍物的权重。
+  forward_point_distance : 0.325    #从机器人的中心点放置一个附加得分点的距离，以米为单位。
+  stop_time_buffer : 0.1    #机器人在碰撞前必须停止的时间量，以便以秒为单位将轨迹视为有效。
+  scaling_speed : 0.0    #开始缩放机器人足迹的速度的绝对值，以 m/s 为单位。
+  max_scaling_factor : 0.2      #将机器人的占地面积缩放为 的最大系数。
+# 振荡预防参数
+  oscillation_reset_dist : 0.05     #机器人必须运动多少米远后才能复位震荡标记。
+
+
+#全球计划参数
+  prune_plan : true     #定义当机器人是否边沿着路径移动时，边抹去已经走过的路径规划。设置为true时，表示当机器人移动1米后，将1米之前的全局路径点一个一个清除。（包括全局的全局路径和局部的全局路径）
+  scillation_reset_dist: 0.5  # default 0.05
+  publish_traj_pc : true     #将规划的轨迹在RVIZ上进行可视化
+  publish_cost_grid_pc: false
+  #将代价值进行可视化显示
+  #是否发布规划器在规划路径时的代价网格.如果设置为true,那么就会在~/cost_cloud话题上发布sensor_msgs/PointCloud2类型消息.
+  global_frame_id: map    #全局参考坐标系为odom
+
+  

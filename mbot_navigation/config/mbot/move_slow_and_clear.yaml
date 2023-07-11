@@ -1,0 +1,8 @@
+clearing_distance : 0.5   #清除以机器人为中心多少米半径范围外的障碍。
+limited_trans_speed : 0.25    #执行该修复行为时候限定的平移速度是为少，单位为 meters/second 。
+limited_rot_speed : 0.25    #执行该修复行为时候限定的角速度是多少,单位为 radians/second 。
+limited_distance : 0.3      #在速度限制解除之前机器人必须移动的距离,单位为 meters 。
+planner_namespace : DWAPlannerROS   #用于重配置参数的规划器命名空间。
+
+
+
