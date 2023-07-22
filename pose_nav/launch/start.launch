@@ -1,0 +1,5 @@
+<launch>
+
+    <node pkg = "pose_nav" type = "node" name = "start " output = "screen/>
+
+</launch>
