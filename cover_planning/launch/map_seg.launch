@@ -1,0 +1,5 @@
+<launch>
+
+    <node pkg = "cover_planning" type = "map_segmentation_node" name = "map_segmentation_node" output = "screen"/>
+
+</launch>

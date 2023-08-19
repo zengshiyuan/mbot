@@ -1,0 +1,10 @@
+<launch>
+
+    <node pkg = "cover_planning" type = "polygon_node" name = "polygon_node" output = "screen"/>
+    <!-- <node pkg = "cover_planning" type = "map_segmentation_node" name = "map_segmentation_node" output = "screen"/> -->
+    <!-- <node pkg = "cover_planning" type = "polygon_grid_node" name = "polygon_grid_node" output = "screen"/> -->
+
+
+</launch>
+
+
