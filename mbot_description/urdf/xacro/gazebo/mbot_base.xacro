@@ -164,15 +164,15 @@
         <xacro:wheel prefix="left"  reflect="-1"/>
         <xacro:wheel prefix="right" reflect="1"/>
 
-        <xacro:caster prefix="front" reflect="-1"/>
-        <xacro:caster prefix="back"  reflect="1"/>
+        <xacro:caster prefix="front" reflect="1"/>
+        <xacro:caster prefix="back"  reflect="-1"/>
 
         <!-- controller -->
         <gazebo>
             <plugin name="differential_drive_controller" 
                     filename="libgazebo_ros_diff_drive.so">
                 <rosDebugLevel>Debug</rosDebugLevel>
-                <publishWheelTF>true</publishWheelTF>
+                <publishWheelTF>false</publishWheelTF>
                 <robotNamespace>/</robotNamespace>
                 <publishTf>1</publishTf>
                 <publishWheelJointState>true</publishWheelJointState>

@@ -17,6 +17,6 @@
 
     <xacro:usb_camera prefix="camera"/>
 
-    <xacro:mbot_base_gazebo/>
+    <!-- <xacro:mbot_base_gazebo/> -->
 
 </robot>

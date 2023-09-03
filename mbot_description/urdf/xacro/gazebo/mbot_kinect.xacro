@@ -17,6 +17,6 @@
 
     <xacro:kinect_camera prefix="kinect"/>
 
-    <xacro:mbot_base_gazebo/>
+    <!-- <xacro:mbot_base_gazebo/> -->
 
 </robot>

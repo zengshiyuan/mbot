@@ -1,5 +1,5 @@
 <launch>
 
-    <node pkg = "pose_nav" type = "node" name = "start " output = "screen/>
+    <node pkg = "pose_nav" type = "start" name = "start" output = "screen"/>
 
 </launch>

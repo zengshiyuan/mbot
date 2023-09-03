@@ -4,7 +4,7 @@
     <xacro:include filename="$(find mbot_description)/urdf/xacro/gazebo/mbot_base.xacro" />
     <xacro:include filename="$(find mbot_description)/urdf/xacro/sensors/lidar_gazebo.xacro" />
 
-    <xacro:property name="lidar_offset_x" value="0" />
+    <xacro:property name="lidar_offset_x" value="0.1" />
     <xacro:property name="lidar_offset_y" value="0" />
     <xacro:property name="lidar_offset_z" value="0.105" />
 
