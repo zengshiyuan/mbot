@@ -7,8 +7,8 @@
       },
       "includePath": [
         "/opt/ros/noetic/include/**",
-        "/home/zsy/catkin_ws/devel/include/**",
-        "/home/zsy/catkin_ws/src/pose_nav/include/**",
+        "/home/zsy/catkin_ws/src/mbot/cover_planning/include/**",
+        "/home/zsy/catkin_ws/src/mbot/pose_nav/include/**",
         "/usr/include/**"
       ],
       "name": "ROS",

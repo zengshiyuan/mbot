@@ -8,11 +8,17 @@ project(pose_nav)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  cv_bridge
+  geometry_msgs
+  image_geometry
+  image_transport
   roscpp
   rospy
+  sensor_msgs
   std_msgs
+  tf
+  apriltag_ros
 )
-
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -135,21 +141,24 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(start src/start.cpp)
 
-## Rename C++ executable without prefix
-## The above recommended prefix causes long target names, the following renames the
-## target back to the shorter version for ease of user use
-## e.g. "rosrun someones_pkg node" instead of "rosrun someones_pkg someones_pkg_node"
-# set_target_properties(start PROPERTIES OUTPUT_NAME node PREFIX "")
-
-## Add cmake target dependencies of the executable
-## same as for the library above
 add_dependencies(start ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
-## Specify libraries to link a library or executable target against
 target_link_libraries(start
   ${catkin_LIBRARIES}
 )
 
+add_executable(qr src/qr.cpp)
+
+add_dependencies(qr ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+target_link_libraries(qr
+  ${catkin_LIBRARIES}
+)
+
+## 指定安装的目标
+install(TARGETS qr
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 #############
 ## Install ##
 #############
